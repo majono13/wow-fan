@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { PublicationService } from '../admin/publication.service';
 import { Publication } from '../models/publication.model';
-import { SanackbarService } from '../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +10,7 @@ import { SanackbarService } from '../shared/services/snackbar.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private publisService: PublicationService, private sanackBar: SanackbarService) { }
+  constructor(private publisService: PublicationService) { }
 
   publications: Publication[] = [];
   $unsubscribe: Subject<any> = new Subject();
@@ -25,7 +24,7 @@ export class MainComponent implements OnInit {
     this.publisService.getPublications()
       .pipe(
         takeUntil(this.$unsubscribe),
-        tap((publi) => this.featured = publi[0])
+        tap((publi) => this.featured = publi[0]),
       )
       .subscribe((publi) => this.publications = publi);
 

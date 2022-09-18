@@ -1,50 +1,17 @@
 .featured {
   text-align: center;
-  padding: 30px 0;
   margin: 10px;
   cursor: pointer;
 }
 
-
-main {
-  max-width: 1200px;
-  margin: auto;
-}
-
-main h1 {
-  font-size: 1.4em;
-  font-family: var(--font-title);
-  color: var(--cor1);
-}
-
-main p {
-  font-size: 1.2em;
-  padding: 20px;
-  line-height: 2em;
-  text-align: justify;
-}
-
-.main-img{
-  max-width: 95%;
-  border: 1px solid rgba(0, 0, 0, 0);
-}
- .main-img:hover {
+.main-img:hover {
   border: 1px solid var(--cor1);
   transition: 0.5s;
  }
 
-@media(max-width:768px) {
-  main h1 {
-    font-size: 1.2em;
-  }
+ h1 {
+  font-family: var(--font-title);
+ }
 
-  main p {
-    font-size: 1.1em;
-    line-height: 1.8em;
-    font-family: var(--font-text);
-  }
 
-  .main-img {
-    height: 200px;
-  }
-}
+

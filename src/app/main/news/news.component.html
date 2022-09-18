@@ -1,1 +1,19 @@
-<p>news works!</p>
+<div class="spinner" *ngIf="publication == null || publication ==undefined">
+  <mat-spinner></mat-spinner>
+</div>
+
+<main class=" animate__animated animate__fadeInDown" *ngIf="publication !== null || publication !==undefined" >
+  <img class="main-img" src="{{publication?.urlImg}}" alt="">
+
+  <h1>
+    {{publication?.title}}
+  </h1>
+
+  <article [innerHTML]="publication?.content">
+
+  </article>
+
+  <span class="origin">Fonte: {{publication?.origin}}</span>
+</main>
+
+
