@@ -8,17 +8,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import 'animate.css';
 
+import { AdminModule } from './admin/admin.module';
 import { MenuComponent } from './shared/components/menu/menu.component';
+import { MainComponent } from './main/main.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NewsComponent } from './main/news/news.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    MainComponent,
+    PageNotFoundComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

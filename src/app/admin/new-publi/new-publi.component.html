@@ -1,0 +1,62 @@
+<form [formGroup]="formPublication" (ngSubmit)="onSubmit()" #form="ngForm">
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Titulo da publicação</mat-label>
+      <input matInput placeholder="Digite o titulo da nova publicação" formControlName="title">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>URL da imagem de destaque</mat-label>
+      <input matInput placeholder="URL da imagem de destaque" formControlName="urlImg">
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Conteúdo</mat-label>
+      <textarea matInput formControlName="content"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="duo-input">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select name="food" formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fonte</mat-label>
+      <input matInput placeholder="Fonte" formControlName="origin">
+    </mat-form-field>
+  </div>
+
+  <button type="submit" [disabled]="formPublication.invalid" mat-button color="primary">Salvar</button>
+  <button (click)="clearFields()" mat-button color="warn">Cancelar</button>
+</form>
+
+
+<div class="div-hint">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2>Exibir dicas</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <ul>
+      <li>Para adicionar imagens a publição é preciso da URL da imagem, você pode criar uma galeria de imagens usando o Flickr e adicionar a URL aqui</li>
+      <li> Recomendamos que as imagens tenham a resolução de 1000x400.</li>
+      <li>O conteúdo deve ser escrito em formato HTML, utilize as tags HTML para formatar o texto.</li>
+      <li>Fonte: esse campo diz respeito a fonte/autor do texto sendo publicado.</li>
+      <li>A categoria vai específicar onde sua publicação será exibida.Exemplo: publicações da categoria noticias aparecem na página de início.</li>
+    </ul>
+
+  </mat-expansion-panel>
