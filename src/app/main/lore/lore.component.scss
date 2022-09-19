@@ -1,0 +1,18 @@
+
+h1 {
+  font-family: var(--font-title);
+}
+
+main ul {
+  list-style-image: url("../../../assets/img/lore-icon.png");
+  padding-bottom: 35px;
+}
+main ul li {
+  padding-top: 30px;
+  list-style-position: inside;
+  cursor: pointer;
+}
+
+main ul li:hover {
+  color:var(--cor2)
+}

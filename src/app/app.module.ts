@@ -13,6 +13,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { MainComponent } from './main/main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NewsComponent } from './main/news/news.component';
+import { LoreComponent } from './main/lore/lore.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NewsComponent } from './main/news/news.component';
     MainComponent,
     PageNotFoundComponent,
     NewsComponent,
+    LoreComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNews();
+    window.scroll(0, 0)
   }
 
   getNews() {

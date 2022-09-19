@@ -3,10 +3,16 @@
     <button (click)="openMenu()" mat-icon-button  class="menu-mobile-icon">
      <mat-icon >menu</mat-icon>
    </button>
-   <span routerLink="/">Início</span>
-   <span>Classes</span>
-   <span>Raças</span>
-   <span>História</span>
-   <span>Personagens</span>
+
+   <div class="logo-menu">
+    <img src="../../../../assets/img/favicon.svg">
+  </div>
+
+
+     <span routerLink="/" (click)="openMenu()">Início</span>
+     <span  (click)="openMenu()">Classes</span>
+     <span (click)="openMenu()">Raças</span>
+     <span routerLink="/lore" (click)="openMenu()">História</span>
+     <span (click)="openMenu()">Personagens</span>
   </mat-toolbar>
 </nav>

@@ -10,6 +10,11 @@ justify-content: center;
 align-items: center;
 height: 80px;
 box-shadow: 1px 1px 5px rgb(0, 0, 0);
+
+position: fixed;
+top: 0;
+z-index: 99;
+transition: all .5s;
 }
 
 span {
@@ -25,8 +30,15 @@ span:hover {
   transition: 0.2s;
 }
 
+.logo-menu {
+  max-width: 70px;
+}
 
 @media(max-width:768px) {
+
+  .logo-menu {
+    visibility: hidden;
+  }
 
   mat-toolbar span {
     display: none;
@@ -50,5 +62,9 @@ span:hover {
 
   .menu-mobile span {
     display: block;
+  }
+
+  .menu-mobile .logo-menu {
+    visibility: visible;
   }
 }
