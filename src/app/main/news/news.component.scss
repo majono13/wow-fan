@@ -6,3 +6,15 @@ h1{
   font-size:1em;
   padding-bottom: 50px
 }
+
+
+article img {
+  max-width: 100%;
+}
+
+
+@media(max-width:768px) {
+  h1 {
+    font-size: 1.3em;
+  }
+}

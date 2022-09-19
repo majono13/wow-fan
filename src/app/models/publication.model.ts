@@ -6,5 +6,6 @@ export interface Publication {
   urlImg: string;
   content: string;
   origin: string;
-  published: boolean
+  published: boolean,
+  featured: boolean
 }

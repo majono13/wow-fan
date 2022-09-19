@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, takeUntil, tap } from 'rxjs';
+import { map, Subject, takeUntil, tap } from 'rxjs';
 import { PublicationService } from '../admin/publication.service';
 import { Publication } from '../models/publication.model';
 
@@ -25,6 +25,8 @@ export class MainComponent implements OnInit {
       .pipe(
         takeUntil(this.$unsubscribe),
         tap((publi) => this.featured = publi[0]),
+        map((results) => results.filter((publi) => publi.published === true)),
+        map((results) => results.filter((publi) => publi.category === 'Noticias')),
       )
       .subscribe((publi) => this.publications = publi);
 

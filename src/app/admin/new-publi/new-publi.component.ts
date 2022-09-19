@@ -21,7 +21,8 @@ export class NewPubliComponent implements OnInit {
     urlImg: ['', [Validators.required, Validators.minLength(6)]],
     content: ['', [Validators.required, Validators.minLength(50)]],
     category: ['', [Validators.required]],
-    origin: ['', [Validators.required, Validators.minLength(3)]]
+    origin: ['', [Validators.required, Validators.minLength(3)]],
+    featured: ['', [Validators.required]],
   });
 
   constructor(private fb: FormBuilder, private publiService: PublicationService, private sanackBar: SanackbarService) { }
@@ -30,18 +31,10 @@ export class NewPubliComponent implements OnInit {
   }
 
   onSubmit() {
-    const newPubli: Publication = {
-      title: this.formPublication.value.title,
-      urlImg: this.formPublication.value.urlImg,
-      content: this.formPublication.value.content,
-      category: this.formPublication.value.category,
-      origin: this.formPublication.value.origin,
-      published: false,
-      id: '',
-      url: this.createUrl()
-    }
+    this.formPublication.value.featured = this.getRadioValue();
 
-    console.log(newPubli)
+    const newPubli = { ...this.formPublication.value, url: this.createUrl(), id: '', published: false };
+
     this.publiService.newPlublication(newPubli)
       .then(() => this.sanackBar.snackbarNotify('Publicação salva! Vá para a página principal para publicá-la'))
       .catch(() => this.sanackBar.snackbarNotify('Falha ao salvar publicação, tente novamente.'));
@@ -55,6 +48,12 @@ export class NewPubliComponent implements OnInit {
     let url = textUrl.replace(/ /g, '-');
 
     return url.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  getRadioValue(): boolean {
+    const published: boolean = this.formPublication.value.featured == 1 ? true : false;
+
+    return published;
   }
 
   clearFields() {

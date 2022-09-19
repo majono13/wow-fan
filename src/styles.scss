@@ -32,7 +32,7 @@ $my-theme: mat.define-dark-theme((
 :root {
 
   --cor1: #f9c32d;
-  --cor2: #8d422b;
+  --cor2: #c0564d;
   --cor3: #211510;
 
   --font-text: "Montserrat", sans-serif;
@@ -43,6 +43,7 @@ body {
   background-color: rgb(43, 43, 43);
   line-height: 1.2em;
   color: white;
+  overflow-x: hidden;
 }
 
 
@@ -68,8 +69,8 @@ main h2 {
 }
 
 main p {
-  font-size: 1.2em;
-  padding: 20px;
+  font-size: 1.1em;
+  padding: 10px;
   line-height: 2em;
   text-align: justify;
 }
@@ -80,34 +81,56 @@ main span {
 }
 
 .main-img{
-  padding-top: 30px;
-  max-width: 95%;
+  margin-top: 30px;
+  width: 100%;
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
-@media(max-width:768px) {
-  main h1 {
-    font-size: 1.2em;
-  }
+main article {
+  max-width: 95%;
+  margin: auto;
+}
 
-  main p {
-    font-size: 1.1em;
-    line-height: 1.8em;
-    font-family: var(--font-text);
-  }
+img {
+  max-width: 95%;
+}
 
-  .main-img {
-    height: 200px;
-  }
+main ul, main ol {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 /**********************/
 
 /********** Spinner *************/
 .spinner {
-  max-width: 1200px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 mat-spinner {
-  margin: 40vh auto;
   width: 50px;
+}
+
+
+
+@media(max-width:768px) {
+
+  /********* Estilização em comum dos elementos na tag main **************/
+  main p {
+    line-height: 1.8em;
+  }
+
+  main h2 {
+    padding-left: 20px;
+  }
+
+  .main-img {
+    height: 200px;
+  }
+
+  /**********************/
 }

@@ -4,6 +4,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from '@firebase/util';
 import { Publication } from '../models/publication.model';
 
+import { collection, query, where } from "firebase/firestore";
+import { filter, from, map } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
