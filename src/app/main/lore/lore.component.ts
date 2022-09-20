@@ -29,4 +29,8 @@ export class LoreComponent implements OnInit {
       .subscribe((publications) => this.publications = publications);
   }
 
+  ngOnDestroy() {
+    this.unsubiscribe$.complete();
+  }
+
 }

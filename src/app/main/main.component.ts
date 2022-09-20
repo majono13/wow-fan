@@ -24,12 +24,20 @@ export class MainComponent implements OnInit {
     this.publisService.getPublications()
       .pipe(
         takeUntil(this.$unsubscribe),
-        tap((publi) => this.featured = publi[0]),
-        map((results) => results.filter((publi) => publi.published === true)),
+        tap((results) => this.getFeatured(results)),
         map((results) => results.filter((publi) => publi.category === 'Noticias')),
       )
       .subscribe((publi) => this.publications = publi);
 
+  }
+
+  getFeatured(publications: Publication[]) {
+    for (let i in publications) {
+      if (publications[i].featured === true) {
+        this.featured = publications[i];
+        return;
+      }
+    }
   }
 
   ngOnDestroy() {

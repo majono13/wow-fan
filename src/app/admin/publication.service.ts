@@ -4,8 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from '@firebase/util';
 import { Publication } from '../models/publication.model';
 
-import { collection, query, where } from "firebase/firestore";
-import { filter, from, map } from 'rxjs';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +24,10 @@ export class PublicationService {
   constructor(private afs: AngularFirestore) { }
 
   getPublications() {
-    return this.publisCollection.valueChanges();
+    return this.publisCollection.valueChanges()
+      .pipe(
+        map((results) => results.filter((publi) => publi.published === true)),
+      )
   }
 
   newPlublication(publi: Publication) {

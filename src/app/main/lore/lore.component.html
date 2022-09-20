@@ -6,6 +6,6 @@
   <h1>Resumo do Lore do World of Warcraft</h1>
 
   <ul>
-  <li *ngFor="let publication of publications">{{publication?.title}}</li>
+  <li routerLink="/lore/{{publication?.url}}" *ngFor="let publication of publications">{{publication?.title}}</li>
 </ul>
 </main>

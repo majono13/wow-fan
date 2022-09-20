@@ -20,22 +20,24 @@ export class NewsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private publisService: PublicationService) { }
 
   ngOnInit(): void {
-    this.getNews();
+    this.getPublications();
     window.scroll(0, 0)
   }
 
-  getNews() {
-    let urlNews = this.route.snapshot.paramMap.get('url');
+  getPublications() {
+
 
     this.publisService.getPublications()
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        (p) => {
-          for (let i of p) {
-            if (i.url === urlNews) this.publication = i;
-          }
-        }
-      );
+      .subscribe((publis) => this.getNews(publis));
+  }
+
+  getNews(publis: Publication[]) {
+    let urlNews = this.route.snapshot.paramMap.get('url');
+
+    for (let i of publis) {
+      if (i.url === urlNews) this.publication = i;
+    }
   }
 
   ngOnDestroy() {

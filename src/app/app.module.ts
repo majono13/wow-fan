@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NewsComponent } from './main/news/news.component';
 import { LoreComponent } from './main/lore/lore.component';
+import { LoreContentComponent } from './main/lore/lore-content/lore-content.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoreComponent } from './main/lore/lore.component';
     PageNotFoundComponent,
     NewsComponent,
     LoreComponent,
+    LoreContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import { LoreComponent } from './main/lore/lore.component';
     MaterialModule,
     AdminModule,
   ],
-  providers: [],
+  providers: [PageNotFoundComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
