@@ -1,0 +1,7 @@
+<main *ngIf="publication">
+  <h1>{{publication?.title}}</h1>
+
+  <article [innerHTML]="publication?.content"></article>
+
+  <mat-divider></mat-divider>
+</main>

@@ -1,7 +1,9 @@
 
 
-    <main class=" animate__animated animate__fadeInDown"  *ngIf="publication; else notFound">
-      <img class="main-img" src="{{publication?.urlImg}}" alt="">
+    <main class=" animate__animated animate__fadeIn"  *ngIf="publication">
+
+      <div class="div-img"><img class="main-img" src="{{publication?.urlImg}}" alt=""></div>
+
       <h1>
         {{publication?.title}}
       </h1>
@@ -10,10 +12,6 @@
       <span class="origin">{{publication?.origin}}</span>
     </main>
 
-
-    <ng-template #notFound>
-      <app-page-not-found></app-page-not-found>
-    </ng-template>
 
 
 

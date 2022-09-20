@@ -1,27 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, takeUntil, map } from 'rxjs';
+
+import { Subject, takeUntil } from 'rxjs';
 
 import { PublicationService } from 'src/app/admin/publication.service';
 import { Publication } from 'src/app/models/publication.model';
+import { BreedContentComponent } from './breed-content/breed-content.component';
 
 @Component({
-  selector: 'app-lore',
-  templateUrl: './lore.component.html',
-  styleUrls: ['./lore.component.scss']
+  selector: 'app-breed',
+  templateUrl: './breed.component.html',
+  styleUrls: ['./breed.component.scss']
 })
-export class LoreComponent implements OnInit {
+export class BreedsComponent implements OnInit {
+
+  publications: Publication[] = [];
+  unsubscribe$: Subject<any> = new Subject();
 
   constructor(private publisService: PublicationService) { }
 
-  publications: Publication[] = []
-  unsubscribe$: Subject<any> = new Subject();
-
   ngOnInit(): void {
     this.getPublications();
+    console.log('oi')
   }
 
   getPublications() {
-    this.publisService.getPublicationsByCategory('Lore')
+    this.publisService.getPublicationsByCategory('Raças')
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((publications) => this.publications = publications);
   }

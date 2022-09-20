@@ -26,10 +26,7 @@ export class LoreContentComponent implements OnInit {
 
 
     this.publisService.getPublications()
-      .pipe(
-        takeUntil(this.unsubiscribe$),
-
-      )
+      .pipe(takeUntil(this.unsubiscribe$))
       .subscribe((publi) => this.getPublicationLore(publi));
   }
 

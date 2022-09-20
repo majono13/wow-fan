@@ -41,16 +41,15 @@ $my-theme: mat.define-dark-theme((
 
 body {
 background-color: #110b08;
-  line-height: 1.2em;
-  color: white;
-  overflow-x: hidden;
+line-height: 1.2em;
+color: white;
+ overflow-x: hidden;
 
 }
 
-
-
 /********* Estilização em comum dos elementos na tag main **************/
 
+/*Configurações gerais*/
 main {
   max-width: 1200px;
   margin: auto;
@@ -61,10 +60,16 @@ main {
   background-image: linear-gradient(to bottom, #221610, #160f0b, #110b08);
 }
 
+/*Configurações de texto*/
+
 main h1 {
-  padding-top: 20px;
+  padding-top: 10%;
   font-size: 1.4em;
   color: var(--cor1);
+}
+
+main h1, main h2 {
+  line-height: 1.5em;
 }
 
 main h2 {
@@ -86,19 +91,9 @@ main span {
   color: var(--cor2);
 }
 
-.main-img{
-  margin-top: 30px;
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0);
-}
-
 main article {
   max-width: 95%;
   margin: auto;
-}
-
-img {
-  max-width: 95%;
 }
 
 main ul, main ol {
@@ -108,7 +103,31 @@ main ul, main ol {
   font-size: 1.1em;
 }
 
+/*Configurações para imagens*/
+
+.main-img{
+  margin-top: 30px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+img {
+  max-width: 95%;
+}
+
+.div-img {
+  height: 400px;
+}
+
 /**********************/
+
+
+/********** Animação ***************/
+
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.2s;
+}
 
 /********** Spinner *************/
 .spinner {
@@ -127,6 +146,9 @@ mat-spinner {
 @media(max-width:768px) {
 
   /********* Estilização em comum dos elementos na tag main **************/
+
+  /*Configurações de texto*/
+
   main p {
     line-height: 1.8em;
   }
@@ -135,9 +157,19 @@ mat-spinner {
     padding-left: 20px;
   }
 
+  /*Configurações de imagens*/
+  .bg-img{
+    background-image: none;
+  }
+
   .main-img {
     height: 200px;
   }
+
+  .div-img {
+    height: 200px;
+  }
+
 
   /**********************/
 }

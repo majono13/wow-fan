@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NewsComponent } from './main/news/news.component';
 import { LoreComponent } from './main/lore/lore.component';
 import { LoreContentComponent } from './main/lore/lore-content/lore-content.component';
+import { BreedsComponent } from './main/breed/breed.component';
+import { BreedContentComponent } from './main/breed/breed-content/breed-content.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { LoreContentComponent } from './main/lore/lore-content/lore-content.comp
     NewsComponent,
     LoreComponent,
     LoreContentComponent,
+    BreedsComponent,
+    BreedContentComponent,
   ],
   imports: [
     BrowserModule,

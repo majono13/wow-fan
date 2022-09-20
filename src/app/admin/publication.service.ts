@@ -23,10 +23,18 @@ export class PublicationService {
 
   constructor(private afs: AngularFirestore) { }
 
+
   getPublications() {
     return this.publisCollection.valueChanges()
       .pipe(
-        map((results) => results.filter((publi) => publi.published === true)),
+        map((results) => results.filter((publi) => publi.published === true))
+      )
+  }
+
+  getPublicationsByCategory(category: string) {
+    return this.publisCollection.valueChanges()
+      .pipe(
+        map((results) => results.filter((publi) => publi.category === category)),
       )
   }
 

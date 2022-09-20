@@ -11,6 +11,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [],
@@ -25,7 +26,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule
   ],
   declarations: [],
 })

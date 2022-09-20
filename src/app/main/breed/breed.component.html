@@ -1,0 +1,27 @@
+<main>
+  <div class="div-img">
+    <img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Fhorda-1.jpg?alt=media&token=0d63ae5a-93e0-4462-8c35-313d4bb5b418" class="main-img">
+
+  <h1>Pela Horda</h1>
+  </div>
+  <div class="horda">
+
+    <div><img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Fhorda-logo.png?alt=media&token=f56d98dd-63cc-45e7-a9b7-7d5e5e5df563"></div>
+
+    <p>A força da Horda vem da união. São guardiões fervorosos da liberdade e da esperança, opondo-se com garra a todos que ameaçarem tais ideais, inclusive à rigorosíssima Aliança.</p>
+
+    <div id="content">
+
+      <mat-tab-group mat-align-tabs="start" dynamicHeight>
+        <mat-tab *ngFor="let publication of publications">
+            <ng-template mat-tab-label>
+              <div> <img src="{{publication?.urlImg}}" routerLink="/breeds/{{publication?.url}}"></div>
+            </ng-template>
+
+              <router-outlet ></router-outlet>
+        </mat-tab>
+      </mat-tab-group>
+
+    </div>
+  </div>
+</main>

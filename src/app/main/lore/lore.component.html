@@ -1,11 +1,12 @@
 <main>
-  <div class="main-img">
-    <img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Flore.jpg?alt=media&token=5041d615-1cac-4f9f-b4fe-487a2233ee28" alt="">
+  <div>
+    <div class="div-img main-img">
+      <img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Flore.jpg?alt=media&token=5041d615-1cac-4f9f-b4fe-487a2233ee28">
+    </div>
+
+    <h1>Resumo do Lore do World of Warcraft</h1>
+    <ul>
+    <li routerLink="/lore/{{publication?.url}}" *ngFor="let publication of publications">{{publication?.title}}</li>
+    </ul>
   </div>
-
-  <h1>Resumo do Lore do World of Warcraft</h1>
-
-  <ul>
-  <li routerLink="/lore/{{publication?.url}}" *ngFor="let publication of publications">{{publication?.title}}</li>
-</ul>
 </main>
