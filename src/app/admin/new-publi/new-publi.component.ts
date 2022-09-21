@@ -33,7 +33,7 @@ export class NewPubliComponent implements OnInit {
   onSubmit() {
     this.formPublication.value.featured = this.getRadioValue();
 
-    const newPubli = { ...this.formPublication.value, url: this.createUrl(), id: '', published: false };
+    const newPubli = { ...this.formPublication.value, url: this.createUrl(), id: '', published: true };
 
     this.publiService.newPlublication(newPubli)
       .then(() => this.sanackBar.snackbarNotify('Publicação salva! Vá para a página principal para publicá-la'))

@@ -16,6 +16,7 @@ import { NewsComponent } from './main/news/news.component';
 import { LoreComponent } from './main/lore/lore.component';
 import { LoreContentComponent } from './main/lore/lore-content/lore-content.component';
 import { BreedsComponent } from './main/breed/breed.component';
+import { CharactersComponent } from './main/characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BreedsComponent } from './main/breed/breed.component';
     LoreComponent,
     LoreContentComponent,
     BreedsComponent,
+    CharactersComponent,
   ],
   imports: [
     BrowserModule,

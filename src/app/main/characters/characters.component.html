@@ -1,0 +1,18 @@
+<main>
+<div class=" animate__animated animate__fadeIn">
+
+    <h1>Principais Personagens</h1>
+
+    <section *ngFor="let publication of publications">
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header style="background-image: url('{{publication?.urlImg}}');">
+          <h2>{{publication?.title}}</h2>
+        </mat-expansion-panel-header>
+        <p [innerHTML]="publication?.content"></p>
+        <div class="origin"><span><a href="{{publication?.origin}}" target="_blank">Fonte</a></span></div>
+      </mat-expansion-panel>
+
+    </section>
+</div>
+</main>

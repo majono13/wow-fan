@@ -1,0 +1,35 @@
+h1 {
+  font-family: var(--font-title);
+ padding: 40px 0
+}
+
+mat-expansion-panel {
+  background-color: transparent;
+}
+
+h2 {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+ font-size: 1.5em;
+ text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.884);
+ margin-bottom: 10px;
+}
+
+mat-expansion-panel-header {
+  height: 100px;
+  background-repeat: no-repeat;
+}
+
+mat-expansion-panel {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+
+@media(max-width:768px) {
+  mat-expansion-panel-header {
+    background-position: center;
+  }
+}
