@@ -12,16 +12,67 @@
 
     <div id="content">
 
-      <mat-tab-group mat-align-tabs="start" dynamicHeight>
-        <mat-tab *ngFor="let publication of publications">
+      <mat-tab-group mat-align-tabs="start" dynamicHeight animationDuration="1000ms">
+        <mat-tab *ngFor="let publication of publicationsHorda">
             <ng-template mat-tab-label>
-              <div> <img src="{{publication?.urlImg}}" routerLink="/breeds/{{publication?.url}}"></div>
+              <div> <img src="{{publication?.urlImg}}" (click)="showDetails()"></div>
             </ng-template>
 
-              <router-outlet ></router-outlet>
+            <!-- Detalhes da raça -->
+            <div class="main" *ngIf="publication" [hidden]="hiddenDetails">
+              <h1>{{publication?.title}}</h1>
+
+              <article [innerHTML]="publication?.content"></article>
+
+              <mat-divider></mat-divider>
+
+              <i (click)="closeDetails()" class="bi bi-x-circle"></i>
+            </div>
+            <!------------->
+        </mat-tab>
+      </mat-tab-group>
+
+
+    </div>
+  </div>
+
+  <div class="div-img">
+    <img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Falianca-capa.jpg?alt=media&token=ee85be33-39e1-44fb-8f03-30ab058a7c53" class="main-img">
+
+  <h1>Pela Aliança</h1>
+  </div>
+
+  <div class="aliance">
+
+    <div><img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Falianca-logo.png?alt=media&token=e7b1e54d-b889-404a-bcf1-aa422f9f270d"></div>
+
+    <p>A força da Aliança vem da tradição. São defensores irredutíveis da justiça e do dever, que protegem o reino de Azeroth de todo e qualquer agressor, inclusive a selvagem Horda.</p>
+
+    <div id="content">
+
+      <mat-tab-group mat-align-tabs="start" dynamicHeight animationDuration="1000ms">
+        <mat-tab *ngFor="let publication of publicationsAliance">
+            <ng-template mat-tab-label>
+              <div> <img src="{{publication?.urlImg}}" (click)="showDetails()"></div>
+            </ng-template>
+
+            <!-- Detalhes da raça -->
+            <div class="main" *ngIf="publication" [hidden]="hiddenDetails">
+              <h1>{{publication?.title}}</h1>
+
+              <article [innerHTML]="publication?.content"></article>
+
+              <mat-divider></mat-divider>
+
+              <i (click)="closeDetails()" class="bi bi-x-circle"></i>
+            </div>
+            <!------------->
         </mat-tab>
       </mat-tab-group>
 
     </div>
   </div>
+
+  <div class="origin"><div class="origin"><span><a href="https://worldofwarcraft.com/pt-br/game/races" target="_blank">Fonte: World of Warcraft</a></span></div></div>
+
 </main>

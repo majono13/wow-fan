@@ -7,5 +7,6 @@ export interface Publication {
   content: string;
   origin: string;
   published: boolean,
-  featured: boolean
+  featured: boolean,
+  fac?: string;
 }

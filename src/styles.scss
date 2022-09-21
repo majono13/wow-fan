@@ -103,6 +103,15 @@ main ul, main ol {
   font-size: 1.1em;
 }
 
+.origin {
+  padding: 30px;
+  text-decoration: underline;
+}
+
+.origin a {
+  color: var(--cor2);
+}
+
 /*Configurações para imagens*/
 
 .main-img{

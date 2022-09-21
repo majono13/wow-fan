@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Subject, takeUntil } from 'rxjs';
+import { map, Subject, takeUntil, filter } from 'rxjs';
 
 import { PublicationService } from 'src/app/admin/publication.service';
 import { Publication } from 'src/app/models/publication.model';
-import { BreedContentComponent } from './breed-content/breed-content.component';
 
 @Component({
   selector: 'app-breed',
@@ -13,20 +12,35 @@ import { BreedContentComponent } from './breed-content/breed-content.component';
 })
 export class BreedsComponent implements OnInit {
 
-  publications: Publication[] = [];
+  hiddenDetails: boolean = true;
+  publicationsHorda: Publication[] = [];
+  publicationsAliance: Publication[] = [];
   unsubscribe$: Subject<any> = new Subject();
 
   constructor(private publisService: PublicationService) { }
 
   ngOnInit(): void {
-    this.getPublications();
-    console.log('oi')
+    this.getPublicationByFac('Horda');
+    this.getPublicationByFac('Aliance')
   }
 
-  getPublications() {
-    this.publisService.getPublicationsByCategory('Raças')
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((publications) => this.publications = publications);
+  getPublicationByFac(fac: string) {
+    return this.publisService.getPublications()
+      .pipe(
+        map((results) => results.filter((publi) => publi.fac === fac))
+      ).subscribe(res => {
+        if (fac == 'Horda') this.publicationsHorda = res;
+        else if (fac == 'Aliance') this.publicationsAliance = res;
+      }
+      );
+  }
+
+  showDetails() {
+    this.hiddenDetails = false;
+  }
+
+  closeDetails() {
+    this.hiddenDetails = true;
   }
 
   ngOnDestroy() {

@@ -20,14 +20,25 @@
   font-size: 2em;
 }
 
+/***** Horda sessão *****/
 .horda {
   background-image: linear-gradient(to bottom, #401115, #26080B,#110b08);
   background-color: #26080B;
-  padding-bottom: 300px;
+  padding-bottom: 80px;
 }
 
-.horda img {
+.horda img, .aliance img {
   max-width: 250px;
+}
+
+/***** Aliança sessão ******/
+
+.aliance {
+  background-image: linear-gradient(to bottom, #162136, #0c1320,#0E1625);
+  background-color:#0E1625;
+
+  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 /*** MAT-TAB-GROUP ****/
@@ -51,6 +62,29 @@
           transition: 1s;
         }
     }
+}
+
+
+/********* Configurações do campo de detalhes de personagem ************/
+
+.main h1, .main {
+  padding-top: 10px;
+}
+
+.main h1 {
+  font-size:1.5em;
+  font-family: var(--font-title);
+}
+
+.main {
+  padding-bottom: 20px;
+  background-image:linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.233));
+  max-width: 90%;
+  margin: auto;
+}
+
+.bi {
+  cursor: pointer;
 }
 
 

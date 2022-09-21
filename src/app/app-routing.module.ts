@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewPubliComponent } from './admin/new-publi/new-publi.component';
-import { BreedContentComponent } from './main/breed/breed-content/breed-content.component';
 import { BreedsComponent } from './main/breed/breed.component';
 import { LoreContentComponent } from './main/lore/lore-content/lore-content.component';
 import { LoreComponent } from './main/lore/lore.component';
@@ -14,11 +13,7 @@ const routes: Routes = [
   { path: 'news/:url', component: NewsComponent },
   { path: 'lore', component: LoreComponent },
   { path: 'lore/:url', component: LoreContentComponent },
-  {
-    path: 'breeds', component: BreedsComponent, children: [{
-      path: ':url', component: BreedContentComponent
-    }]
-  },
+  { path: 'breeds', component: BreedsComponent },
   { path: 'add', component: NewPubliComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

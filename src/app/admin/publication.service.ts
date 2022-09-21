@@ -34,6 +34,7 @@ export class PublicationService {
   getPublicationsByCategory(category: string) {
     return this.publisCollection.valueChanges()
       .pipe(
+        map((results) => results.filter((publi) => publi.published === true)),
         map((results) => results.filter((publi) => publi.category === category)),
       )
   }
