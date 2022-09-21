@@ -38,7 +38,9 @@ $my-theme: mat.define-dark-theme((
   --font-text: "Montserrat", sans-serif;
   --font-title: "Metamorphous", cursive;
 }
-
+html, body {
+  scroll-behavior:smooth;
+}
 body {
 background-color: #110b08;
 line-height: 1.2em;
@@ -63,7 +65,7 @@ main {
 /*Configurações de texto*/
 
 main h1 {
-  padding-top: 30px;
+  padding-top: 60px;
   font-size: 1.4em;
   color: var(--cor1);
 }
@@ -117,6 +119,7 @@ main ul, main ol {
 .main-img{
   margin-top: 30px;
   width: 100%;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
@@ -125,6 +128,7 @@ img {
 }
 
 .div-img {
+  width: 100%;
   height: 400px;
 }
 

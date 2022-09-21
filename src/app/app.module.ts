@@ -17,6 +17,8 @@ import { LoreComponent } from './main/lore/lore.component';
 import { LoreContentComponent } from './main/lore/lore-content/lore-content.component';
 import { BreedsComponent } from './main/breed/breed.component';
 import { CharactersComponent } from './main/characters/characters.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { ButtonTopComponent } from './shared/components/button-top/button-top.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CharactersComponent } from './main/characters/characters.component';
     LoreContentComponent,
     BreedsComponent,
     CharactersComponent,
+    FooterComponent,
+    ButtonTopComponent,
   ],
   imports: [
     BrowserModule,

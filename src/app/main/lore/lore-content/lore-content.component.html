@@ -1,15 +1,18 @@
 
 
-    <main class=" animate__animated animate__fadeIn"  *ngIf="publication">
+    <main *ngIf="publication">
 
-      <div class="div-img"><img class="main-img" src="{{publication?.urlImg}}" alt=""></div>
+      <div class=" animate__animated animate__fadeIn">
 
-      <h1>
-        {{publication?.title}}
-      </h1>
-      <article [innerHTML]="publication?.content">
-      </article>
-      <div class="origin"><span><a href="{{publication?.origin}}" target="_blank">Fonte: Wow Girl</a></span></div>
+        <div class="div-img"><img class="main-img" src="{{publication?.urlImg}}" alt=""></div>
+        <h1>
+          {{publication?.title}}
+        </h1>
+        <article [innerHTML]="publication?.content">
+        </article>
+        <div class="origin"><span><a href="{{publication?.origin}}" target="_blank">Fonte: Wow Girl</a></span></div>
+
+      </div>
     </main>
 
 

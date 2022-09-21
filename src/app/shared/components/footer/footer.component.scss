@@ -1,0 +1,38 @@
+footer {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  height: 80px;
+}
+
+ul {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.bi {
+  padding-right: 5px;
+}
+
+a{
+  text-decoration: none;
+  color: var(--cor1);
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+
+a:hover {
+  color: var(--cor2)
+}
+
+
+@media(max-width:767px) {
+  a {
+    font-size: 1.1em;
+
+  }
+}

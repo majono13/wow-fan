@@ -8,6 +8,11 @@
 
 .main-img {
   border-radius: 10px;
+  z-index:800;
+}
+
+.logo {
+  padding-top: 30px;
 }
 
 .div-img h1 {
@@ -24,7 +29,6 @@
 .horda {
   background-image: linear-gradient(to bottom, #401115, #26080B,#110b08);
   background-color: #26080B;
-  padding-bottom: 80px;
 }
 
 .horda img, .aliance img {

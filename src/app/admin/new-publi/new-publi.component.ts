@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 
-import { Publication } from 'src/app/models/publication.model';
+import { Subject, takeUntil, tap } from 'rxjs'
+
 import { SanackbarService } from 'src/app/shared/services/snackbar.service';
 import { PublicationService } from '../publication.service';
 
@@ -14,7 +15,9 @@ export class NewPubliComponent implements OnInit {
 
   @ViewChild('form') form: NgForm;
 
+  unsubiscribe$: Subject<any> = new Subject();
   categories: string[] = this.publiService.categories;
+  order: Number = 0;
 
   formPublication = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
@@ -28,12 +31,16 @@ export class NewPubliComponent implements OnInit {
   constructor(private fb: FormBuilder, private publiService: PublicationService, private sanackBar: SanackbarService) { }
 
   ngOnInit(): void {
+
+    this.getOrder()
   }
 
   onSubmit() {
     this.formPublication.value.featured = this.getRadioValue();
 
-    const newPubli = { ...this.formPublication.value, url: this.createUrl(), id: '', published: true };
+    const newPubli = { ...this.formPublication.value, url: this.createUrl(), id: '', published: true, order: this.order };
+
+    console.log(newPubli);
 
     this.publiService.newPlublication(newPubli)
       .then(() => this.sanackBar.snackbarNotify('Publicação salva! Vá para a página principal para publicá-la'))
@@ -56,7 +63,19 @@ export class NewPubliComponent implements OnInit {
     return published;
   }
 
+  getOrder() {
+
+    this.publiService.getPublications()
+      .pipe(takeUntil(this.unsubiscribe$))
+      .subscribe(res => this.order = res.length + 1);
+  }
+
   clearFields() {
     this.form.resetForm();
+  }
+
+
+  ngOnDestroy() {
+    this.unsubiscribe$.complete();
   }
 }

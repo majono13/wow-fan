@@ -21,12 +21,14 @@ export class MainComponent implements OnInit {
   }
 
   getPublications() {
+    console.log(this.publisService.op2())
     this.publisService.getPublicationsByCategory('Noticias')
       .pipe(
         takeUntil(this.$unsubscribe),
         tap((results) => this.getFeatured(results)),
       )
       .subscribe((publi) => this.publications = publi);
+
 
   }
 

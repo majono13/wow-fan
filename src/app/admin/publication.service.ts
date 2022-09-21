@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from '@firebase/util';
 import { Publication } from '../models/publication.model';
 
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,16 +23,19 @@ export class PublicationService {
 
   constructor(private afs: AngularFirestore) { }
 
+  data: Publication[] = [];
 
   getPublications() {
-    return this.publisCollection.valueChanges()
+    return this.afs.collection<Publication>('publications', ref => ref.orderBy('order').startAfter(0))
+      .valueChanges()
       .pipe(
         map((results) => results.filter((publi) => publi.published === true))
       )
   }
 
   getPublicationsByCategory(category: string) {
-    return this.publisCollection.valueChanges()
+    return this.afs.collection<Publication>('publications', ref => ref.orderBy('order').startAfter(0))
+      .valueChanges()
       .pipe(
         map((results) => results.filter((publi) => publi.published === true)),
         map((results) => results.filter((publi) => publi.category === category)),
@@ -42,5 +45,14 @@ export class PublicationService {
   newPlublication(publi: Publication) {
     publi.id = this.afs.createId();
     return this.publisCollection.doc(publi.id).set(publi);
+  }
+
+  op2() {
+    this.afs.collection<Publication>('publications', ref => ref.orderBy('order').startAfter(0))
+      .valueChanges()
+      .pipe(
+        map((results) => results.filter((publi) => publi.published === true)),
+        map((results) => results.filter((publi) => publi.category === 'Raças')),
+      )
   }
 }
