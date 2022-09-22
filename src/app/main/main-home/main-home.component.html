@@ -1,0 +1,36 @@
+
+
+  <div class="spinner" *ngIf="featured == null || featured ==undefined">
+    <mat-spinner></mat-spinner>
+  </div>
+
+<main *ngIf="featured">
+
+  <div class=" animate__animated animate__fadeIn">
+
+    <!-- Destaque -->
+    <div class="featured" routerLink="/news/{{featured?.url}}">
+
+      <div class="div-img"><img class="main-img" src="{{featured?.urlImg}}" alt=""></div>
+
+      <h1 [innerHTML]="featured?.title"></h1>
+      <p [innerHTML]="featured?.content.slice(0,250) + '...'"></p>
+    </div>
+    <!------------->
+
+    <!-- Conteudo -->
+    <div routerLink="/news/{{publication?.url}}" class="news" *ngFor="let publication of publications">
+      <mat-divider></mat-divider>
+      <div class="publi">
+          <div><img src="{{publication?.urlImg}}"></div>
+          <div>
+            <h2>{{publication?.title}}</h2>
+                  <p [innerHTML]="publication?.content.slice(0,80) + '...'"></p>
+          </div>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+
+    <!------------->
+  </div>
+</main>

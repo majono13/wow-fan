@@ -1,0 +1,62 @@
+
+mat-tab-group {
+  padding-top: 20px;
+}
+
+.publi {
+  height: auto;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.publi:hover {
+  background-color: #1d130e;
+  transition: 0.3s;
+}
+
+p span {
+  color: var(--cor2);
+  font-weight: bold;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.publi-img {
+  border: 1px solid var(--cor1);
+  width: 80px;
+  padding:10px;
+  margin: 20px 20px 20px 0;
+}
+
+.publi-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/********* Aria Label ***********/
+[aria-label] {
+  position: relative;
+  }
+
+  [aria-label]::after {
+  content: attr(aria-label);
+  display: none;
+  position: absolute;
+  top: 90%;
+  right: 0;
+  z-index: 5000;
+  pointer-events: none;
+  padding: 5px 7px;
+  text-decoration: none;
+  font-size: .7em;
+  color: #fff;
+  background-color: #412917;
+  border-radius: 1px 10px 10px;
+  }
+
+  [aria-label]:hover::after {
+  display: block;
+  }

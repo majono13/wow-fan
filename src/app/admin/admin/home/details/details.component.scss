@@ -1,0 +1,80 @@
+
+/*********  Configurações do section **********/
+
+section {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.div-1 {
+  text-align: left;
+}
+
+.img {
+  border: 1px solid var(--cor1);
+  width: 400px;
+  height: 200px;
+  padding: 15px 10px;
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color:var(--cor2);
+}
+
+.edit {
+  margin-top: 20px;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+
+
+p {
+  margin-bottom: 10px;
+}
+
+
+ h1 {
+  margin: 50px 0;
+  font-family: var(--font-title);
+  color:var(--cor1);
+  text-align: center;
+}
+h3 {
+  margin-bottom: 20px;
+}
+
+h3 i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/*Botões publicar/despublicar*/
+button {
+  margin-right: 10px;
+}
+.mat-button.mat-green {
+  color: green;
+}
+
+.mat-button.mat-green{
+  color: green
+}
+
+.mat-button.mat-red {
+  color: rgb(179, 65, 65);
+}
+
+.mat-button.mat-red{
+  color: rgb(179, 65, 65);
+}
+
+/******************/

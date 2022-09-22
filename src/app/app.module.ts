@@ -19,6 +19,7 @@ import { BreedsComponent } from './main/breed/breed.component';
 import { CharactersComponent } from './main/characters/characters.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ButtonTopComponent } from './shared/components/button-top/button-top.component';
+import { MainHomeComponent } from './main/main-home/main-home.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ButtonTopComponent } from './shared/components/button-top/button-top.co
     CharactersComponent,
     FooterComponent,
     ButtonTopComponent,
+    MainHomeComponent,
   ],
   imports: [
     BrowserModule,

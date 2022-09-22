@@ -14,7 +14,7 @@ import { Publication } from 'src/app/models/publication.model';
 export class LoreContentComponent implements OnInit {
 
   publication!: Publication;
-  unsubiscribe$: Subject<any> = new Subject();
+  unsubscribe$: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, private publisService: PublicationService) { }
 
@@ -26,7 +26,7 @@ export class LoreContentComponent implements OnInit {
 
 
     this.publisService.getPublications()
-      .pipe(takeUntil(this.unsubiscribe$))
+      .pipe(takeUntil(this.unsubscribe$))
       .subscribe((publi) => this.getPublicationLore(publi));
   }
 
@@ -43,6 +43,6 @@ export class LoreContentComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.unsubiscribe$.complete();
+    this.unsubscribe$.complete();
   }
 }
