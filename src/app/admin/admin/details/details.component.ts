@@ -5,8 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 
 import { PublicationService } from 'src/app/admin/publication.service';
 import { Publication } from 'src/app/models/publication.model';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../dialog/dialog.component';
+import { Dialog } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-details',
@@ -19,7 +18,7 @@ export class DetailsComponent implements OnInit {
   published: string = '';
   unsubscribe$: Subject<any> = new Subject();
 
-  constructor(private publisService: PublicationService, private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(private publisService: PublicationService, private route: ActivatedRoute, public dialog: Dialog) { }
 
   ngOnInit(): void {
     this.getPublications();
@@ -53,15 +52,8 @@ export class DetailsComponent implements OnInit {
     publication.published = !publication.published;
 
     this.publisService.editPublication(publication)
-      .then((res) => this.openDialog(' <i class="bi bi-emoji-sunglasses-fill"></i>   O status da sua publicação foi mudado com sucesso!'))
-      .catch((err) => '<i class="bi bi-emoji-dizzy-fill"></i> Ops! Algo deu erro, tente novamente ou contate um adiministrador!');
-  }
-
-  openDialog(msg: string) {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: msg,
-    });
-
+      .then((res) => this.dialog.openDialog(' <i class="bi bi-emoji-sunglasses-fill"></i>   O status da sua publicação foi mudado com sucesso!'))
+      .catch((err) => this.dialog.openDialog('<i class="bi bi-emoji-dizzy-fill"></i> Ops! Algo deu erro, tente novamente ou contate um adiministrador!'));
   }
 
 

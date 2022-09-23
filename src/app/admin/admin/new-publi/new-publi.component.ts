@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 
-import { Subject, takeUntil, tap } from 'rxjs'
+import { Subject, takeUntil } from 'rxjs'
+import { Dialog } from 'src/app/shared/services/dialog.service';
 
-import { SanackbarService } from 'src/app/shared/services/snackbar.service';
-import { PublicationService } from '../publication.service';
+import { PublicationService } from '../../publication.service';
 
 @Component({
   selector: 'app-new-publi',
@@ -28,7 +28,7 @@ export class NewPubliComponent implements OnInit {
     featured: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private publiService: PublicationService, private sanackBar: SanackbarService) { }
+  constructor(private fb: FormBuilder, private publiService: PublicationService, public dialog: Dialog) { }
 
   ngOnInit(): void {
 
@@ -43,8 +43,10 @@ export class NewPubliComponent implements OnInit {
     console.log(newPubli);
 
     this.publiService.newPlublication(newPubli)
-      .then(() => this.sanackBar.snackbarNotify('Publicação salva! Vá para a página principal para publicá-la'))
-      .catch(() => this.sanackBar.snackbarNotify('Falha ao salvar publicação, tente novamente.'));
+      .then(() => {
+        this.dialog.openDialog('<i class="bi bi-emoji-sunglasses-fill"></i> Nova Publicação Adicionada com sucesso!');
+      })
+      .catch((err) => this.dialog.openDialog('<i class="bi bi-emoji-dizzy-fill"></i> Ops! Algo deu erro, tente novamente ou contate um adiministrador!'));
 
     this.clearFields();
   }

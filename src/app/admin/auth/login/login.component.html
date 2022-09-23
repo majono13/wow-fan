@@ -1,0 +1,24 @@
+<div class="container">
+
+  <img src="../../../../assets/img/favicon.svg">
+  <h1>Faça Login para continuar</h1>
+
+  <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Digite seu e-mail" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Código de acesso</mat-label>
+        <input matInput placeholder="Digite seu código de acesso" formControlName="acessCode">
+      </mat-form-field>
+
+      <div><button [disabled]="formLogin.invalid" mat-raised-button color="green">Entrar</button></div>
+  </form>
+
+  <p>
+    Por Azeroth!
+  </p>
+</div>

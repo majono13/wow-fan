@@ -1,12 +1,13 @@
 <mat-toolbar>
   <div class="logo">
-    <img src="../../../../assets/img/favicon.svg"  routerLink="/" title="Ir para a página principal">
-      <span>Bem-vindo(a) {{user?.name}} Maria</span>
+    <img src="../../../../assets/img/favicon.svg"  routerLink="/admin" title="Ir para a página principal">
+      <span>Bem-vindo(a) {{(user | async)?.name}}</span>
     </div>
 
     <div class="icons">
+      <i routerLink="/" class="bi bi-globe" title="Ir para página de publicações"></i>
         <i routerLink="/admin/add" title="Nova Publicação" class="bi bi-plus-circle"></i>
-        <i title="Adicionar novo usuário" class="bi bi-person-plus-fill"></i>
-        <i title="Sair" class="bi bi-box-arrow-right"></i>
+        <i routerLink="/admin/new-admin" title="Adicionar novo usuário" class="bi bi-person-plus-fill"></i>
+        <i (click)="logout()" title="Sair" class="bi bi-box-arrow-right"></i>
     </div>
 </mat-toolbar>

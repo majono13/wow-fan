@@ -4,9 +4,10 @@
 
 <mat-tab-group *ngIf="publications" mat-align-tabs="start" dynamicHeight>
 
+  <!------ Todas publicações ----------->
     <mat-tab label="Todas">
 
-      <div *ngFor="let publication of publications">
+      <div *ngFor="let publication of pageSliceAll">
 
         <section class="publi" routerLink="/admin/details/{{publication?.url}}" title="Ver detalhes">
           <p><span>Título:</span> {{publication?.title}}</p>
@@ -20,10 +21,12 @@
       </div>
     </mat-tab>
 
+      <!---------------->
 
+        <!------ Publicadas----------->
     <mat-tab label="Publicadas">
 
-      <div *ngFor="let publication of publisheds">
+      <div *ngFor="let publication of pageSlicePublisheds">
 
         <section class="publi" routerLink="/admin/details/{{publication?.url}}" title="Ver detalhes">
           <p><span>Título:</span> {{publication?.title}}</p>
@@ -37,5 +40,12 @@
       </div>
 
     </mat-tab>
-
+     <!---------------->
   </mat-tab-group>
+
+  <mat-paginator
+  (page)="onPageEvent($event)"
+  [length]="publications?.length"
+  [pageSizeOptions]="[5, 10,20]"
+  aria-label="Selecione a página">
+ </mat-paginator>

@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subject, takeUntil, tap } from 'rxjs'
 import { Publication } from 'src/app/models/publication.model';
 import { PublicationService } from 'src/app/admin/publication.service';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
+import { Dialog } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-edit',
@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
   publication!: Publication;
 
   formEditPublication: FormGroup;
-  constructor(private fb: FormBuilder, private publiService: PublicationService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
+  constructor(private fb: FormBuilder, private publiService: PublicationService, private route: ActivatedRoute, public dialog: Dialog, private router: Router) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
@@ -35,8 +35,8 @@ export class EditComponent implements OnInit {
       .pipe(takeUntil(this.unsubiscribe$))
       .subscribe(p => {
         console.log(p)
-        this.publication = p[0];
-        this.loadDatasForm(p[0]);
+        this.publication = p;
+        this.loadDatasForm(p);
       });
   }
 
@@ -57,10 +57,10 @@ export class EditComponent implements OnInit {
 
     this.publiService.editPublication(publiEdited)
       .then(() => {
-        this.openDialog('<i class="bi bi-emoji-sunglasses-fill"></i>   Publicação editada com sucesso!');
+        this.dialog.openDialog('<i class="bi bi-emoji-sunglasses-fill"></i>   Publicação editada com sucesso!');
         this.router.navigateByUrl('/admin/details/' + this.publication.url);
       })
-      .catch((err) => '<i class="bi bi-emoji-dizzy-fill"></i> Ops! Algo deu erro, tente novamente ou contate um adiministrador!');
+      .catch((err) => this.dialog.openDialog('<i class="bi bi-emoji-dizzy-fill"></i> Ops! Algo deu erro, tente novamente ou contate um adiministrador!'));
   }
 
   creatNewPublication(): Publication {
@@ -73,13 +73,6 @@ export class EditComponent implements OnInit {
       order: this.publication.order,
       fac: this.publication.fac ? this.publication.fac : ''
     }
-  }
-
-  openDialog(msg: string) {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: msg,
-
-    });
   }
 
   exit() {

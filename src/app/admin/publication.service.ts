@@ -35,14 +35,14 @@ export class PublicationService {
 
   //Filtra todas as publicações
   getAllPublications(): Observable<Publication[]> {
+
     return this.afs.collection<Publication>('publications', ref => ref.orderBy('order').startAfter(0))
       .valueChanges();
   }
 
   //Filtra todas as publicações por id
   getPublicationById(id: string) {
-    return this.afs.collection<Publication>('publications', ref => ref.orderBy('id').startAt(id).endAt(id))
-      .valueChanges();
+    return this.publisCollection.doc(id).valueChanges();
   }
 
   //Filtra as publicações publicadas por url

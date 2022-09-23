@@ -1,0 +1,44 @@
+.container {
+  margin: auto;
+  width:100%;
+  padding-top: 150px;
+  text-align: center;
+}
+
+.container img {
+  max-width: 100px;
+  padding-bottom: 20px;
+}
+
+mat-form-field {
+  width: 40%;
+  margin-right: 10px;
+}
+
+h1 {
+  margin-bottom: 50px;
+}
+
+p {
+  margin-top: 50px;
+}
+
+h1, p {
+  color: var(--cor1);
+  font-family: var(--font-title);
+}
+
+ .mat-raised-button.mat-green{
+  background-color: rgb(52, 121, 52);
+  color: white;
+}
+
+@media(max-width:768px) {
+  mat-form-field {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.3em;
+  }
+}

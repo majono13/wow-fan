@@ -29,6 +29,12 @@ a:hover {
   color: var(--cor2)
 }
 
+p {
+  padding: 30px;
+  font-family: var(--font-title);
+  color: var(--cor1)
+}
+
 
 @media(max-width:767px) {
   a {

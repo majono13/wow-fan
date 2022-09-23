@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 import { MaterialModule } from './shared/material.module';
 import 'animate.css';
@@ -20,6 +24,8 @@ import { CharactersComponent } from './main/characters/characters.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ButtonTopComponent } from './shared/components/button-top/button-top.component';
 import { MainHomeComponent } from './main/main-home/main-home.component';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -37,11 +43,14 @@ import { MainHomeComponent } from './main/main-home/main-home.component';
     MainHomeComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     AdminModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [PageNotFoundComponent],
   bootstrap: [AppComponent]

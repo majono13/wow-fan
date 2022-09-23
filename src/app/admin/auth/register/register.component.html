@@ -1,0 +1,31 @@
+<header>
+  <h1>Novo Usuário</h1>
+
+  <p>*Atenção: Ao adicionar um novo usuário você permitirá que ele acesso todos os recursos de administrador</p>
+</header>
+
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+
+  <div class="duo-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome do Usuário</mat-label>
+      <input matInput placeholder="Digite o nome do usuário" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail do usuário</mat-label>
+      <input matInput placeholder="Digite o e-mail do usuário" formControlName="email">
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Código de acesso</mat-label>
+      <input matInput placeholder="Código que o usuário irá usar para fazer login" formControlName="acessCode">
+    </mat-form-field>
+  </div>
+
+  <button [disabled]="formRegister.invalid" mat-raised-button color="green"> Confirmar</button>
+  <button (click)="exit()" mat-raised-button color="warn">Sair</button>
+</form>

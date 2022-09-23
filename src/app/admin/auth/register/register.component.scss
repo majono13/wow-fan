@@ -1,0 +1,42 @@
+form {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: var(--cor1);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+p {
+  font-style: italic;
+}
+mat-form-field {
+  width: 40%;
+}
+
+.duo-input mat-form-field {
+  margin-left: 10px;
+ }
+
+ .mat-raised-button.mat-green{
+  background-color: rgb(52, 121, 52);
+  color: white;
+}
+
+ button {
+  margin-right: 20px;
+ }
+
+
+ @media(max-width:767px) {
+  mat-form-field {
+    width: 90%;
+  }
+ }

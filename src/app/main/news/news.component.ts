@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { filter, Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 import { PublicationService } from 'src/app/admin/publication.service';
 import { Publication } from 'src/app/models/publication.model';
