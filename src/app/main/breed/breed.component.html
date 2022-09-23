@@ -1,10 +1,14 @@
-<main>
+<div class="spinner" *ngIf="!publicationsHorda">
+  <mat-spinner></mat-spinner>
+</div>
+
+<main *ngIf="publicationsHorda">
   <div class="div-img">
     <img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Fhorda-1.jpg?alt=media&token=0d63ae5a-93e0-4462-8c35-313d4bb5b418" class="main-img">
 
   <h1>Pela Horda</h1>
   </div>
-  <div class="horda animate__animated animate__fadeIn" >
+  <div class="horda animate__animated animate__fadeIn">
 
     <div class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Fhorda-logo.png?alt=media&token=f56d98dd-63cc-45e7-a9b7-7d5e5e5df563"></div>
 

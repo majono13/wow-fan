@@ -21,6 +21,21 @@
     </mat-tab>
 
 
-    <mat-tab label="Publicadas"></mat-tab>
+    <mat-tab label="Publicadas">
+
+      <div *ngFor="let publication of publisheds">
+
+        <section class="publi" routerLink="/admin/details/{{publication?.url}}" title="Ver detalhes">
+          <p><span>Título:</span> {{publication?.title}}</p>
+          <div class="info">
+            <div class="publi-img" ><img src="{{publication?.urlImg}}"></div>
+            <p>Categoria: {{publication?.category}}</p>
+          </div>
+        </section>
+
+        <mat-divider></mat-divider>
+      </div>
+
+    </mat-tab>
 
   </mat-tab-group>

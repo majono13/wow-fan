@@ -36,27 +36,4 @@ p span {
   max-height: 100%;
 }
 
-/********* Aria Label ***********/
-[aria-label] {
-  position: relative;
-  }
-
-  [aria-label]::after {
-  content: attr(aria-label);
-  display: none;
-  position: absolute;
-  top: 90%;
-  right: 0;
-  z-index: 5000;
-  pointer-events: none;
-  padding: 5px 7px;
-  text-decoration: none;
-  font-size: .7em;
-  color: #fff;
-  background-color: #412917;
-  border-radius: 1px 10px 10px;
-  }
-
-  [aria-label]:hover::after {
-  display: block;
-  }
+/*****************/

@@ -1,6 +1,6 @@
 export interface Publication {
   category: string;
-  id?: string;
+  id: string;
   title: string;
   url: string;
   urlImg: string;

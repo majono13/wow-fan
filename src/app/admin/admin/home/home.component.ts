@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil, map } from 'rxjs';
 import { Publication } from 'src/app/models/publication.model';
 import { PublicationService } from '../../publication.service';
 
@@ -11,18 +11,27 @@ import { PublicationService } from '../../publication.service';
 export class HomeComponent implements OnInit {
 
   publications!: Publication[];
+  publisheds!: Publication[];
   unsubscribe$: Subject<any> = new Subject();
 
   constructor(private publisService: PublicationService) { }
 
   ngOnInit(): void {
-    this.getPublications();
+    this.getPublicationsAllPublication();
+    this.getPublicationPublisheds();
   }
 
-  getPublications() {
+  getPublicationsAllPublication() {
     this.publisService.getAllPublications()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(publications => this.publications = publications);
   }
 
+  getPublicationPublisheds() {
+    this.publisService.getAllPublications()
+      .pipe(takeUntil(this.unsubscribe$),
+        map((results) => results.filter((publi) => publi.published === true))
+      )
+      .subscribe(publications => this.publisheds = publications);
+  }
 }

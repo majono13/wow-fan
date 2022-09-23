@@ -25,7 +25,7 @@ export class BreedsComponent implements OnInit {
   }
 
   getPublicationByFac(fac: string) {
-    return this.publisService.getPublications()
+    return this.publisService.getPublicationsByCategory('Raças')
       .pipe(
         map((results) => results.filter((publi) => publi.fac === fac))
       ).subscribe(res => {

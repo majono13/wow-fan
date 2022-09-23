@@ -38,7 +38,7 @@ export class NewPubliComponent implements OnInit {
   onSubmit() {
     this.formPublication.value.featured = this.getRadioValue();
 
-    const newPubli = { ...this.formPublication.value, url: this.createUrl(), id: '', published: true, order: this.order };
+    const newPubli = { ...this.formPublication.value, url: this.publiService.createUrl(this.formPublication.value.title), id: '', published: true, order: this.order };
 
     console.log(newPubli);
 
@@ -49,14 +49,6 @@ export class NewPubliComponent implements OnInit {
     this.clearFields();
   }
 
-  createUrl(): string {
-    const textUrl = this.formPublication.value.title;
-
-    let url = textUrl.replace(/ /g, '-');
-
-    return url.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
-  }
-
   getRadioValue(): boolean {
     const published: boolean = this.formPublication.value.featured == 1 ? true : false;
 
@@ -65,7 +57,7 @@ export class NewPubliComponent implements OnInit {
 
   getOrder() {
 
-    this.publiService.getPublications()
+    this.publiService.getAllPublications()
       .pipe(takeUntil(this.unsubiscribe$))
       .subscribe(res => this.order = res.length + 1);
   }

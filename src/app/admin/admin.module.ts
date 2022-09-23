@@ -17,6 +17,7 @@ import { HomeComponent } from './admin/home/home.component';
 import { MenuAdminComponent } from './admin/menu-admin/menu-admin.component';
 import { DetailsComponent } from './admin/home/details/details.component';
 import { EditComponent } from './admin/edit/edit.component';
+import { DialogComponent } from './admin/dialog/dialog.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EditComponent } from './admin/edit/edit.component';
     HomeComponent,
     MenuAdminComponent,
     DetailsComponent,
-    EditComponent
+    EditComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { EditComponent } from './admin/edit/edit.component';
     AngularFirestoreModule,
     MaterialModule,
     AppRoutingModule
-  ]
+  ],
+  providers: []
 })
 export class AdminModule { }

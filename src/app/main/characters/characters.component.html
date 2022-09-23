@@ -1,5 +1,9 @@
+<div class="spinner" *ngIf="!publications">
+  <mat-spinner></mat-spinner>
+</div>
+
 <main>
-<div class=" animate__animated animate__fadeIn">
+<div class=" animate__animated animate__fadeIn" *ngIf="publications">
 
     <h1>Principais Personagens</h1>
 

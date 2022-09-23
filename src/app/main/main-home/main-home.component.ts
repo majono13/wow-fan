@@ -12,7 +12,7 @@ export class MainHomeComponent implements OnInit {
 
   constructor(private publisService: PublicationService) { }
 
-  publications: Publication[] = [];
+  publications!: Publication[];
   $unsubscribe: Subject<any> = new Subject();
   featured: Publication;
 
@@ -21,7 +21,6 @@ export class MainHomeComponent implements OnInit {
   }
 
   getPublications() {
-    console.log(this.publisService.op2())
     this.publisService.getPublicationsByCategory('Noticias')
       .pipe(
         takeUntil(this.$unsubscribe),

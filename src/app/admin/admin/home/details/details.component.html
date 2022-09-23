@@ -9,8 +9,8 @@
       <div class="img">
         <img src="{{publication?.urlImg}}">
       </div>
-      <button color="red" [disabled]="!publication?.published" mat-button>Despublicar</button>
-      <button color="green" [disabled]="publication?.published" class="red" mat-button>Publicar</button>
+      <button color="red" [disabled]="!publication?.published" mat-button (click)="editStatusPublication(publication)">Despublicar</button>
+      <button color="green" [disabled]="publication?.published" class="red" mat-button (click)="editStatusPublication(publication)">Publicar</button>
     </div>
 
     <div class="details">
@@ -38,7 +38,14 @@
       <!--- Origen----->
       <p>Fonte: <a href="{{publication?.origin}}" target="_blank">Clique aqui</a></p>
 
+      <!--- Editar publicação----->
       <p routerLink="/admin/edit/{{publication?.id}}" class="edit">Editar Publicação <i class="bi bi-gear"></i></p>
+
     </div>
   </section>
+<div class="back-button">
+    <button routerLink="/admin"  color="accent" mat-raised-button>
+      <i class="bi bi-arrow-left"></i> Voltar
+    </button>
+</div>
 </div>

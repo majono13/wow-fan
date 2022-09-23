@@ -1,16 +1,21 @@
+<div class="spinner" *ngIf="!publication">
+  <mat-spinner></mat-spinner>
+</div>
 
 
     <main *ngIf="publication">
 
       <div class=" animate__animated animate__fadeIn">
 
-        <div class="div-img"><img class="main-img" src="{{publication?.urlImg}}" alt=""></div>
-        <h1>
-          {{publication?.title}}
-        </h1>
-        <article [innerHTML]="publication?.content">
-        </article>
-        <div class="origin"><span><a href="{{publication?.origin}}" target="_blank">Fonte: Wow Girl</a></span></div>
+        <div *ngFor="let publication of publication">
+          <div class="div-img"><img class="main-img" src="{{publication?.urlImg}}" alt=""></div>
+          <h1>
+            {{publication?.title}}
+          </h1>
+          <article [innerHTML]="publication?.content">
+          </article>
+          <div class="origin"><span><a href="{{publication?.origin}}" target="_blank">Fonte: Wow Girl</a></span></div>
+        </div>
 
       </div>
     </main>

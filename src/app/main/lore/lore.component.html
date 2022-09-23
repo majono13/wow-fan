@@ -1,6 +1,11 @@
+
+  <div class="spinner" *ngIf="!publications">
+    <mat-spinner></mat-spinner>
+  </div>
+
 <main>
 
-  <div class="animate__animated animate__fadeIn">
+  <div class="animate__animated animate__fadeIn" *ngIf="publications">
     <div class="div-img ">
       <img class="main-img" src="https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/img%2Flore.jpg?alt=media&token=5041d615-1cac-4f9f-b4fe-487a2233ee28">
     </div>

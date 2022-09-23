@@ -14,30 +14,23 @@ import { Publication } from 'src/app/models/publication.model';
 })
 export class NewsComponent implements OnInit {
 
-  publication!: Publication;
+  publication!: Publication[];
   unsubscribe$: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, private publisService: PublicationService) { }
 
   ngOnInit(): void {
-    this.getPublications();
+    this.getPublication();
     window.scroll(0, 0)
   }
 
-  getPublications() {
-
-
-    this.publisService.getPublications()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((publis) => this.getNews(publis));
-  }
-
-  getNews(publis: Publication[]) {
+  getPublication() {
     let urlNews = this.route.snapshot.paramMap.get('url');
 
-    for (let i of publis) {
-      if (i.url === urlNews) this.publication = i;
-    }
+    this.publisService.getPublicationByUrl(urlNews)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((publi) => this.publication = publi);
+
   }
 
   ngOnDestroy() {

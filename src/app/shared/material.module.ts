@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [],
@@ -29,7 +30,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatRadioModule,
     MatDividerModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   declarations: [],
 })

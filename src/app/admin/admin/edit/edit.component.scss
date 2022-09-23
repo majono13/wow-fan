@@ -1,0 +1,81 @@
+form, .div-hint {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+}
+
+form {
+  margin-top: 70px;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+textarea {
+  height: 40vh;
+  color: white
+}
+
+.duo-input mat-form-field {
+ max-width: 45%;
+ margin-left: 5px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+mat-radio-group {
+  display: flex;
+  align-items: center;
+}
+
+mat-radio-group mat-label {
+  margin-left:80px
+}
+
+mat-radio-button {
+  margin: 20px 10px;
+
+  left: 0;
+}
+
+/******* Configurações da barra de scrow do textarea**********/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/***************************/
+
+mat-expansion-panel  {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+  text-align: left;
+}
+
+h2 {
+  color: var(--cor1);
+}
+
+
+@media(max-width:767px) {
+  mat-radio-group mat-label {
+    margin-left:20px
+  }
+}

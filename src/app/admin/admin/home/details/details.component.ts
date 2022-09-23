@@ -5,6 +5,8 @@ import { Subject, takeUntil } from 'rxjs';
 
 import { PublicationService } from 'src/app/admin/publication.service';
 import { Publication } from 'src/app/models/publication.model';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
   selector: 'app-details',
@@ -17,7 +19,7 @@ export class DetailsComponent implements OnInit {
   published: string = '';
   unsubscribe$: Subject<any> = new Subject();
 
-  constructor(private publisService: PublicationService, private route: ActivatedRoute) { }
+  constructor(private publisService: PublicationService, private route: ActivatedRoute, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getPublications();
@@ -46,6 +48,22 @@ export class DetailsComponent implements OnInit {
     if (this.publication?.published) this.published = 'Publicado';
     else this.published = 'Não Publicado';
   }
+
+  editStatusPublication(publication: Publication) {
+    publication.published = !publication.published;
+
+    this.publisService.editPublication(publication)
+      .then((res) => this.openDialog(' <i class="bi bi-emoji-sunglasses-fill"></i>   O status da sua publicação foi mudado com sucesso!'))
+      .catch((err) => '<i class="bi bi-emoji-dizzy-fill"></i> Ops! Algo deu erro, tente novamente ou contate um adiministrador!');
+  }
+
+  openDialog(msg: string) {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: msg,
+    });
+
+  }
+
 
   ngOnDestroy() {
     this.unsubscribe$.complete();

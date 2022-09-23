@@ -1,1 +1,64 @@
-<p>edit works!</p>
+
+<div class="spinner" *ngIf="!publication">
+  <mat-spinner></mat-spinner>
+</div>
+
+<form [formGroup]="formEditPublication" (ngSubmit)="onSubmit()" #form="ngForm" *ngIf="publication">
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Titulo da publicação</mat-label>
+      <input matInput placeholder="Digite o titulo da nova publicação" formControlName="title">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>URL da imagem de destaque</mat-label>
+      <input matInput placeholder="URL da imagem de destaque" formControlName="urlImg">
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Conteúdo</mat-label>
+      <textarea matInput formControlName="content"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="duo-input">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select name="food" formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fonte</mat-label>
+      <input matInput placeholder="Fonte" formControlName="origin">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-radio-group aria-label="Marcar como destaque" formControlName="featured">
+      <mat-label>Marcar como Destaque:</mat-label>
+      <mat-radio-button value="1">Sim</mat-radio-button>
+      <mat-radio-button value="2">Não</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div>
+    <mat-radio-group aria-label="Marcar como destaque" formControlName="published">
+      <mat-label>Publicar:</mat-label>
+      <mat-radio-button value="1">Sim</mat-radio-button>
+      <mat-radio-button value="2">Não</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <button type="submit" [disabled]="formEditPublication.invalid" mat-button color="primary">Salvar</button>
+  <button (click)="exit()" mat-button color="warn">Cancelar</button>
+</form>

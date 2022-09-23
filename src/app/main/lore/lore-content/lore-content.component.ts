@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,7 +14,7 @@ import { Publication } from 'src/app/models/publication.model';
 })
 export class LoreContentComponent implements OnInit {
 
-  publication!: Publication;
+  publication!: Publication[];
   unsubscribe$: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, private publisService: PublicationService) { }
@@ -24,22 +25,11 @@ export class LoreContentComponent implements OnInit {
 
   getPublication() {
 
-
-    this.publisService.getPublications()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((publi) => this.getPublicationLore(publi));
-  }
-
-  getPublicationLore(publi: Publication[]) {
     let urlLore = this.route.snapshot.paramMap.get('url');
 
-    for (let p of publi) {
-
-      if (p.url === urlLore) {
-        this.publication = p;
-        return;
-      }
-    }
+    this.publisService.getPublicationByUrl(urlLore)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((publi) => this.publication = publi);
   }
 
   ngOnDestroy() {
