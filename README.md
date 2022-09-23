@@ -1,27 +1,54 @@
 # WowFan
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+### Este é um projeto pessoal no estilo "blog". Onde é possível criar e editar publicações.
 
-## Development server
+Na aplicação, usuários autenticados (administradores) podem adicionar publicações a página principal. Esta página fica disponível para leitura de todos os usuários.
+Dentro da rota "/admin", além de adicionar novas publicações também é possível editar publicações existentes. Além disso, também é possível adicionar novos administradores que terão acessos aos recursos da rota.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Página inicial da pagina principal](https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/readme%2Fpag-principal.jpeg?alt=media&token=0d744db3-e2c2-4f72-af3d-4cf6a7996a9b)
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1 - Adicionar novas publicações: É possível adicionar novas publicações seguindo as seguintes orientações:
+  - Informar o título da publicação;
+  - Informar a URL da imagem destaque da publicação (essa URL diz respeito a imagem que será a capa da publicação);
+  - Informar o conteúdo: o conteúdo deve ser escrito em formato HTML;
+  - Informar a categoria: a categoria indica em qual url (rota) a publicação será exibida;
+  - Informar a fonte:  em caso de publicações não autorais é preciso informar a URL/autor da fonte original, caso a publicação seja autoral, basta     digitar seu nome.
 
-## Build
+2 - Visualizar detalhes da publicação: Ao clicar em uma publicação na página inicial da rota admin é possível visualizar os detalhes da publicação, e é por aqui que é possível publicar/despublicar uma postagem e também acessar o menu de edição.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Página de detalhes da publicação](https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/readme%2Fdetalhes.jpeg?alt=media&token=0abecf78-9a74-4e53-bb8c-01731dd14adf)
 
-## Running unit tests
+3 - Editar publicação: É possível editar todas as informações que foram passadas no momento de criação da publicação.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4 - Adicionar usuário: Adicionar um novo usuário que irá poder ter acesso a todos os recursos da rota admin
+![Adicionar novo usuário](https://firebasestorage.googleapis.com/v0/b/wow-fan.appspot.com/o/readme%2Fnovo-usuario.jpeg?alt=media&token=122ec63c-85d9-4f35-a826-92bed77f5220)
 
-## Running end-to-end tests
+5 - Filtrar publicações com status de publicadas: é possível alternar a exibição entre as todas as publicações e as com status de publicadas.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+6 - Login: Fazer login para ter acesso aos recursos da rota.
 
-## Further help
+7 - Visualizar postagens: qualquer usuário pode ter acesso a visualização das postagens que estão com status de publicadas.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+8 - Interface responsiva: A aplicação funciona bem tanto em computadores quanto em tablets e celulares.
+
+<h3 align="center">[📁 Acesso ao projeto](https://aurora-livraria.firebaseapp.com)</h3>
+
+
+<h3>✅ Tecnologias Utilizadas</h3>
+
+➡️ Angular 13
+
+➡️ Firebase
+
+➡️ Angular Material Design
+
+➡️ Typescript
+
+➡️ HTML 5
+
+➡️ CSS 3
+
+
+
