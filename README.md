@@ -33,7 +33,7 @@ Dentro da rota "/admin", além de adicionar novas publicações também é poss�
 
 8 - Interface responsiva: A aplicação funciona bem tanto em computadores quanto em tablets e celulares.
 
-<h3 align="center">[📁 Acesso ao projeto](https://aurora-livraria.firebaseapp.com)</h3>
+<h3 align="center">[📁 Acesso ao projeto](https://wow-fan.web.app/)</h3>
 
 
 <h3>✅ Tecnologias Utilizadas</h3>
