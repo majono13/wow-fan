@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subject, takeUntil } from 'rxjs';
 
@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
   published: string = '';
   unsubscribe$: Subject<any> = new Subject();
 
-  constructor(private publisService: PublicationService, private route: ActivatedRoute, public dialog: Dialog) { }
+  constructor(private publisService: PublicationService, private route: ActivatedRoute, private router: Router, public dialog: Dialog) { }
 
   ngOnInit(): void {
     this.getPublications();
@@ -41,6 +41,8 @@ export class DetailsComponent implements OnInit {
         return;
       }
     }
+
+    this.router.navigateByUrl('/not-found');
   }
 
   checkPublishedStatus() {

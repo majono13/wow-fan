@@ -1,6 +1,6 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { map, Subject, takeUntil, filter } from 'rxjs';
 
@@ -17,7 +17,7 @@ export class LoreContentComponent implements OnInit {
   publication!: Publication[];
   unsubscribe$: Subject<any> = new Subject();
 
-  constructor(private route: ActivatedRoute, private publisService: PublicationService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private publisService: PublicationService) { }
 
   ngOnInit(): void {
     this.getPublication();
@@ -29,7 +29,12 @@ export class LoreContentComponent implements OnInit {
 
     this.publisService.getPublicationByUrl(urlLore)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((publi) => this.publication = publi);
+      .subscribe(
+        (publi) => {
+          if (publi.length !== 0) this.publication = publi;
+          else this.router.navigateByUrl('/not-found');
+        }
+      );
   }
 
   ngOnDestroy() {

@@ -35,7 +35,6 @@ export class MainHomeComponent implements OnInit {
     for (let i in publications) {
       if (publications[i].featured === true) {
         this.featured = publications[i];
-        return;
       }
     }
   }

@@ -34,9 +34,12 @@ export class EditComponent implements OnInit {
     this.publiService.getPublicationById(id)
       .pipe(takeUntil(this.unsubiscribe$))
       .subscribe(p => {
-        console.log(p)
-        this.publication = p;
-        this.loadDatasForm(p);
+
+        if (p) {
+          this.publication = p;
+          this.loadDatasForm(p);
+        }
+        else this.router.navigateByUrl('/not-found');
       });
   }
 

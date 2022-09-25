@@ -40,6 +40,7 @@ const routes: Routes = [
       { path: 'new-admin', component: RegisterComponent }
     ]
   },
+  { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
