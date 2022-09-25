@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from '../app-routing.module';
 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { MaterialModule } from '../shared/material.module';
 
+import { AdminRoutingModule } from './admin-routing.module';
 import { NewPubliComponent } from './admin/new-publi/new-publi.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './admin/home/home.component';
@@ -59,7 +59,7 @@ export function getIntl() {
     ReactiveFormsModule,
     AngularFireAuthModule,
     MaterialModule,
-    AppRoutingModule
+    AdminRoutingModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getIntl() }
